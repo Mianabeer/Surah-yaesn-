@@ -1,0 +1,747 @@
+here is ur code
+
+<!DOCTYPE html>  <html lang="ar" dir="rtl">    <head>      <meta charset="UTF-8">      
+<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+<title>سورة يس - Surah Yaseen</title>      
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">      
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">      
+<style>      
+    * {      
+        margin: 0;      
+        padding: 0;      
+        box-sizing: border-box;      
+    }  body {      
+    font-family: 'Poppins', sans-serif;      
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f8f7 100%);      
+    color: #2d3748;      
+    line-height: 1.6;      
+    overflow-x: hidden;      
+}    /* Professional Header */
+
+.app-header {
+background: linear-gradient(135deg, #008069 0%, #00a085 50%, #00c4a7 100%);
+color: white;
+padding: 1.5rem 1rem;
+text-align: center;
+box-shadow: 0 4px 20px rgba(0, 128, 105, 0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+backdrop-filter: blur(10px);
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.header-title {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+
+.arabic-title {
+font-family: 'Amiri', serif;
+font-size: 2.2rem;
+font-weight: 700;
+letter-spacing: 2px;
+text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.english-title {
+font-family: 'Poppins', sans-serif;
+font-size: 1.1rem;
+font-weight: 500;
+opacity: 0.95;
+letter-spacing: 0.5px;
+}
+
+.subtitle {
+font-size: 0.9rem;
+opacity: 0.8;
+margin-top: 0.5rem;
+font-weight: 400;
+}
+
+/* Professional Audio Controls */
+.audio-section {
+background: white;
+padding: 2rem 1rem;
+margin: 1rem;
+border-radius: 20px;
+box-shadow: 0 10px 40px rgba(0, 128, 105, 0.1);
+border: 1px solid rgba(0, 128, 105, 0.1);
+}
+
+.audio-controls {
+text-align: center;
+max-width: 600px;
+margin: 0 auto;
+}
+
+.reciter-info {
+margin-bottom: 1.5rem;
+color: #4a5568;
+}
+
+.reciter-name {
+font-size: 1.1rem;
+font-weight: 600;
+color: #008069;
+margin-bottom: 0.25rem;
+}
+
+.reciter-description {
+font-size: 0.9rem;
+opacity: 0.8;
+}
+
+.play-button {
+background: linear-gradient(135deg, #008069 0%, #00a085 50%, #00c4a7 100%);
+color: white;
+border: none;
+padding: 1.2rem 2.5rem;
+border-radius: 60px;
+font-size: 1.1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+box-shadow: 0 8px 30px rgba(0, 128, 105, 0.3);
+min-width: 200px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.75rem;
+margin: 0 auto 1.5rem;
+position: relative;
+overflow: hidden;
+font-family: 'Poppins', sans-serif;
+}
+
+.play-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+transition: left 0.6s;
+}
+
+.play-button:hover::before {
+left: 100%;
+}
+
+.play-button:hover {
+transform: translateY(-3px) scale(1.02);
+box-shadow: 0 12px 40px rgba(0, 128, 105, 0.4);
+}
+
+.play-button:active {
+transform: translateY(-1px) scale(0.98);
+}
+
+.play-button.playing {
+background: linear-gradient(135deg, #dc3545 0%, #e85d75 50%, #f093a0 100%);
+animation: pulse 2s infinite;
+}
+
+.play-button.loading {
+background: linear-gradient(135deg, #6c757d 0%, #868e96 50%, #adb5bd 100%);
+cursor: wait;
+}
+
+@keyframes pulse {
+0% { box-shadow: 0 8px 30px rgba(220, 53, 69, 0.3); }
+50% { box-shadow: 0 12px 40px rgba(220, 53, 69, 0.5); }
+100% { box-shadow: 0 8px 30px rgba(220, 53, 69, 0.3); }
+}
+
+.play-icon {
+font-size: 1.2rem;
+transition: all 0.3s ease;
+}
+
+.loading-spinner {
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* Professional Progress Bar */
+.progress-section {
+margin-top: 1.5rem;
+}
+
+.time-display {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 0.5rem;
+font-size: 0.9rem;
+color: #4a5568;
+font-weight: 500;
+}
+
+.progress-container {
+background: #e2e8f0;
+height: 8px;
+border-radius: 10px;
+overflow: hidden;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.progress-container:hover {
+height: 10px;
+}
+
+.progress-bar {
+height: 100%;
+background: linear-gradient(90deg, #008069, #00a085, #FFD700);
+width: 0%;
+transition: width 0.3s ease;
+border-radius: 10px;
+position: relative;
+}
+
+.progress-bar::after {
+content: '';
+position: absolute;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+width: 12px;
+height: 12px;
+background: white;
+border-radius: 50%;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.progress-container:hover .progress-bar::after {
+opacity: 1;
+}
+
+/* Professional Surah Text */
+.surah-container {
+background: white;
+margin: 1rem;
+border-radius: 20px;
+box-shadow: 0 10px 40px rgba(0, 128, 105, 0.08);
+border: 1px solid rgba(0, 128, 105, 0.05);
+max-height: 60vh;
+overflow-y: auto;
+}
+
+.surah-header {
+background: linear-gradient(135deg, #008069, #00a085);
+color: white;
+padding: 1.5rem;
+text-align: center;
+border-radius: 20px 20px 0 0;
+}
+
+.surah-info {
+font-family: 'Poppins', sans-serif;
+margin-bottom: 1rem;
+}
+
+.surah-stats {
+display: flex;
+justify-content: center;
+gap: 2rem;
+font-size: 0.9rem;
+opacity: 0.9;
+}
+
+.bismillah {
+text-align: center;
+font-family: 'Amiri', serif;
+font-size: 1.8rem;
+font-weight: 700;
+color: #008069;
+margin: 2rem 1rem;
+padding: 1.5rem;
+border: 3px solid #008069;
+border-radius: 15px;
+background: linear-gradient(135deg, #f0f8f7, #e8f5e8);
+box-shadow: 0 4px 15px rgba(0, 128, 105, 0.1);
+}
+
+.verses-container {
+padding: 1rem 1.5rem 2rem;
+}
+
+.verse {
+font-family: 'Amiri', serif;
+font-size: 1.5rem;
+line-height: 2.5;
+margin-bottom: 1.5rem;
+padding: 1.5rem;
+background: linear-gradient(135deg, #fafafa, #f8f9fa);
+border-radius: 15px;
+border-right: 5px solid #008069;
+transition: all 0.4s ease;
+text-align: right;
+direction: rtl;
+position: relative;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.verse:hover {
+background: linear-gradient(135deg, #f0f8f7, #e8f5e8);
+transform: translateX(-3px);
+box-shadow: 0 8px 25px rgba(0, 128, 105, 0.1);
+}
+
+.verse-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, #008069, #00a085);
+color: white;
+width: 35px;
+height: 35px;
+border-radius: 50%;
+font-size: 1rem;
+margin-left: 1rem;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+box-shadow: 0 3px 10px rgba(0, 128, 105, 0.3);
+}
+
+/* Professional Bottom Navigation */
+.bottom-nav {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+border-top: 1px solid rgba(0, 128, 105, 0.1);
+padding: 0.75rem;
+display: flex;
+justify-content: space-around;
+box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0.5rem 1rem;
+color: #718096;
+text-decoration: none;
+transition: all 0.3s ease;
+font-size: 0.8rem;
+font-weight: 500;
+border-radius: 12px;
+position: relative;
+}
+
+.nav-item:hover, .nav-item.active {
+color: #008069;
+background: rgba(0, 128, 105, 0.05);
+transform: translateY(-2px);
+}
+
+.nav-item.active::after {
+content: '';
+position: absolute;
+bottom: -0.75rem;
+left: 50%;
+transform: translateX(-50%);
+width: 4px;
+height: 4px;
+background: #008069;
+border-radius: 50%;
+}
+
+.nav-item i {
+font-size: 1.3rem;
+margin-bottom: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.surah-container {
+margin: 0.5rem;
+max-height: 50vh;
+}
+
+.audio-section {      
+    margin: 0.5rem;      
+    padding: 1.5rem 1rem;      
+}      
+      
+.verse {      
+    font-size: 1.3rem;      
+    padding: 1rem;      
+    line-height: 2.2;      
+}      
+      
+.arabic-title {      
+    font-size: 1.8rem;      
+}      
+      
+.play-button {      
+    padding: 1rem 2rem;      
+    font-size: 1rem;      
+    min-width: 180px;      
+}      
+
+.bismillah {      
+    font-size: 1.5rem;      
+    margin: 1rem;      
+    padding: 1rem;      
+}
+
+}
+
+/* Custom Scrollbar */
+.surah-container::-webkit-scrollbar {
+width: 8px;
+}
+
+.surah-container::-webkit-scrollbar-track {
+background: #f1f5f9;
+border-radius: 10px;
+}
+
+.surah-container::-webkit-scrollbar-thumb {
+background: linear-gradient(135deg, #008069, #00a085);
+border-radius: 10px;
+}
+
+.surah-container::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(135deg, #006b5a, #008571);
+}
+
+/* Volume Control */
+.volume-control {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+margin-top: 1rem;
+color: #4a5568;
+}
+
+.volume-slider {
+width: 100px;
+height: 4px;
+border-radius: 2px;
+background: #e2e8f0;
+outline: none;
+-webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+width: 16px;
+height: 16px;
+border-radius: 50%;
+background: #008069;
+cursor: pointer;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+</style>  </head>
+
+<body>      
+    <!-- Professional Header -->      
+    <header class="app-header">      
+        <div class="header-content">      
+            <div class="header-title">      
+                <h1 class="arabic-title">سورة يس</h1>      
+                <p class="english-title">Surah Yaseen - The Heart of the Quran</p>      
+                <p class="subtitle">83 Verses • Meccan • Revealed in Makkah</p>      
+            </div>      
+        </div>      
+    </header>  <!-- Professional Audio Section -->      
+<div class="audio-section">      
+    <div class="audio-controls">      
+        <div class="reciter-info">      
+            <div class="reciter-name">Sheikh Abdul Rahman Al-Sudais</div>      
+            <div class="reciter-description">Imam of Masjid al-Haram, Makkah</div>      
+        </div>    <button class="play-button" id="playButton">      
+        <i class="fas fa-play play-icon" id="playIcon"></i>      
+        <span id="playText">Listen to Recitation</span>      
+    </button>      <div class="progress-section">      
+    <div class="time-display">      
+        <span id="currentTime">00:00</span>      
+        <span id="totalTime">15:42</span>      
+    </div>      
+    <div class="progress-container" id="progressContainer">      
+        <div class="progress-bar" id="progressBar"></div>      
+    </div>      
+</div>      
+
+<div class="volume-control">      
+    <i class="fas fa-volume-down"></i>      
+    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="75">      
+    <i class="fas fa-volume-up"></i>      
+</div>
+
+</div>  </div>    <!-- Professional Surah Text -->    <div class="surah-container">      
+    <div class="surah-header">      
+        <div class="surah-info">      
+            <h2 style="font-family: 'Amiri', serif; font-size: 1.5rem; margin-bottom: 0.5rem;">سورة يس</h2>      
+            <div class="surah-stats">      
+                <span><i class="fas fa-list"></i> 83 Verses</span>      
+                <span><i class="fas fa-map-marker-alt"></i> Meccan</span>      
+                <span><i class="fas fa-book"></i> Chapter 36</span>      
+            </div>      
+        </div>      
+    </div>    <div class="bismillah">      
+    بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ      
+</div>      <div class="verses-container">      
+    <div class="verse">      
+        يس <span class="verse-number">١</span>      
+    </div>      <div class="verse">      
+    وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ وَفَجَّرْنَا فِيهَا مِنَ الْعُيُونِ <span class="verse-number">٣٤</span>      
+</div>      
+
+<div class="verse">      
+    لِيَأْكُلُوا مِن ثَمَرِهِ وَمَا عَمِلَتْهُ أَيْدِيهِمْ ۖ أَفَلَا يَشْكُرُونَ <span class="verse-number">٣٥</span>      
+</div>      
+
+<div class="verse">      
+    سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا مِمَّا تُنبِتُ الْأَرْضُ وَمِنْ أَنفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ <span class="verse-number">٣٦</span>      
+</div>      
+
+<div class="verse">      
+    وَآيَةٌ لَّهُمُ اللَّيْلُ نَسْلَخُ مِنْهُ النَّهَارَ فَإِذَا هُم مُّظْلِمُونَ <span class="verse-number">٣٧</span>      
+</div>      
+
+<div class="verse">      
+    وَالشَّمْسُ تَجْرِي لِمُسْتَقَرٍّ لَّهَا ۚ ذَٰلِكَ تَقْدِيرُ الْعَزِيزِ الْعَلِيمِ <span class="verse-number">٣٨</span>      
+</div>      
+
+<div class="verse">      
+    وَالْقَمَرَ قَدَّرْنَاهُ مَنَازِلَ حَتَّىٰ عَادَ كَالْعُرْجُونِ الْقَدِيمِ <span class="verse-number">٣٩</span>      
+</div>      
+
+<div class="verse">      
+    لَا الشَّمْسُ يَنبَغِي لَهَا أَن تُدْرِكَ الْقَمَرَ وَلَا اللَّيْلُ سَابِقُ النَّهَارِ ۚ وَكُلٌّ فِي فَلَكٍ يَسْبَحُونَ <span class="verse-number">٤٠</span>      
+</div>      
+
+<div class="verse">      
+    وَآيَةٌ لَّهُمْ أَنَّا حَمَلْنَا ذُرِّيَّتَهُمْ فِي الْفُلْكِ الْمَشْحُونِ <span class="verse-number">٤١</span>      
+</div>      
+
+<div class="verse">      
+    وَخَلَقْنَا لَهُم مِّن مِّثْلِهِ مَا يَرْكَبُونَ <span class="verse-number">٤٢</span>      
+</div>      
+
+<div class="verse">      
+    وَإِن نَّشَأْ نُغْرِقْهُمْ فَلَا صَرِيخَ لَهُمْ وَلَا هُمْ يُنقَذُونَ <span class="verse-number">٤٣</span>      
+</div>      
+
+<div class="verse">      
+    إِلَّا رَحْمَةً مِّنَّا وَمَتَاعًا إِلَىٰ حِينٍ <span class="verse-number">٤٤</span>      
+</div>      
+
+<div class="verse">      
+    وَإِذَا قِيلَ لَهُمُ اتَّقُوا مَا بَيْنَ أَيْدِيكُمْ وَمَا خَلْفَكُمْ لَعَلَّكُمْ تُرْحَمُونَ <span class="verse-number">٤٥</span>      
+</div>      
+
+<div class="verse">      
+    وَمَا تَأْتِيهِم مِّنْ آيَةٍ مِّنْ آيَاتِ رَبِّهِمْ إِلَّا كَانُوا عَنْهَا مُعْرِضِينَ <span class="verse-number">٤٦</span>      
+</div>      
+
+<div class="verse">      
+    وَإِذَا قِيلَ لَهُمْ أَنفِقُوا مِمَّا رَزَقَكُمُ اللَّهُ قَالَ الَّذِينَ كَفَرُوا لِلَّذِينَ آمَنُوا أَنُطْعِمُ مَن لَّوْ يَشَاءُ اللَّهُ أَطْعَمَهُ إِنْ أَنتُمْ إِلَّا فِي ضَلَالٍ مُّبِينٍ <span class="verse-number">٤٧</span>      
+</div>      
+
+<div class="verse">      
+    وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ إِن كُنتُمْ صَادِقِينَ <span class="verse-number">٤٨</span>      
+</div>      
+
+<div class="verse">      
+    مَا يَنظُرُونَ إِلَّا صَيْحَةً وَاحِدَةً تَأْخُذُهُمْ وَهُمْ يَخِصِّمُونَ <span class="verse-number">٤٩</span>      
+</div>      
+
+<div class="verse">      
+    فَلَا يَسْتَطِيعُونَ تَوْصِيَةً وَلَا إِلَىٰ أَهْلِهِمْ يَرْجِعُونَ <span class="verse-number">٥٠</span>      
+</div>      
+
+<div class="verse">      
+    وَنُفِخَ فِي الصُّورِ فَإِذَا هُم مِّنَ الْأَجْدَاثِ إِلَىٰ رَبِّهِمْ يَنسِلُونَ <span class="verse-number">٥١</span>      
+</div>      
+
+<div class="verse">      
+    قَالُوا يَا وَيْلَنَا مَن بَعَثَنَا مِن مَّرْقَدِنَا ۜ ۗ هَٰذَا مَا وَعَدَ الرَّحْمَٰنُ وَصَدَقَ الْمُرْسَلُونَ <span class="verse-number">٥٢</span>      
+</div>      
+
+<div class="verse">      
+    إِن كَانَتْ إِلَّا صَيْحَةً وَاحِدَةً فَإِذَا هُمْ جَمِيعٌ لَّدَيْنَا مُحْضَرُونَ <span class="verse-number">٥٣</span>      
+</div>      
+
+<div class="verse">      
+    فَالْيَوْمَ لَا تُظْلَمُ نَفْسٌ شَيْئًا وَلَا تُجْزَوْنَ إِلَّا مَا كُنتُمْ تَعْمَلُونَ <span class="verse-number">٥٤</span>      
+</div>      
+
+<div class="verse">      
+    إِنَّ أَصْحَابَ الْجَنَّةِ الْيَوْمَ فِي شُغُلٍ فَاكِهُونَ <span class="verse-number">٥٥</span>      
+</div>      
+
+<div class="verse">      
+    هُمْ وَأَزْوَاجُهُمْ فِي ظِلَالٍ عَلَى الْأَرَائِكِ مُتَّكِئُونَ <span class="verse-number">٥٦</span>      
+</div>      
+
+<div class="verse">      
+    لَهُمْ فِيهَا فَاكِهَةٌ وَلَهُم مَّا يَدَّعُونَ <span class="verse-number">٥٧</span>      
+</div>      
+
+<div class="verse">      
+    سَلَامٌ قَوْلًا مِّن رَّبٍّ رَّحِيمٍ <span class="verse-number">٥٨</span>      
+</div>      
+
+<div class="verse">      
+    وَامْتَازُوا الْيَوْمَ أَيُّهَا الْمُجْرِمُونَ <span class="verse-number">٥٩</span>      
+</div>      
+
+<div class="verse">      
+    أَلَمْ أَعْهَدْ إِلَيْكُمْ يَا بَنِي آدَمَ أَن لَّا تَعْبُدُوا الشَّيْطَانَ ۖ إِنَّهُ لَكُمْ عَدُوٌّ مُّبِينٌ <span class="verse-number">٦٠</span>      
+</div>      
+
+<div class="verse">      
+    وَأَنِ اعْبُدُونِي ۚ هَٰذَا صِرَاطٌ مُّسْتَالْقُرْآنِ الْحَكِيمِ <span class="verse-number">٢</span>      
+</div>      
+      
+<div class="verse">      
+    إِنَّكَ لَمِنَ الْمُرْسَلِينَ <span class="verse-number">٣</span>      
+</div>      
+      
+<div class="verse">      
+    عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ <span class="verse-number">٤</span>      
+</div>      
+      
+<div class="verse">      
+    تَنزِيلَ الْعَزِيزِ الرَّحِيمِ <span class="verse-number">٥</span>      
+</div>      
+      
+<div class="verse">      
+    لِتُنذِرَ قَوْمًا مَّا أُنذِرَ آبَاؤُهُمْ فَهُمْ غَافِلُونَ <span class="verse-number">٦</span>      
+</div>      
+      
+<div class="verse">      
+    لَقَدْ حَقَّ الْقَوْلُ عَلَىٰ أَكْثَرِهِمْ فَهُمْ لَا يُؤْمِنُونَ <span class="verse-number">٧</span>      
+</div>      
+      
+<div class="verse">      
+    إِنَّا جَعَلْنَا فِي أَعْنَاقِهِمْ أَغْلَالًا فَهِيَ إِلَى الْأَذْقَانِ فَهُم مُّقْمَحُونَ <span class="verse-number">٨</span>      
+</div>      
+      
+<div class="verse">      
+    وَجَعَلْنَا مِن بَيْنِ أَيْدِيهِمْ سَدًّا وَمِنْ خَلْفِهِمْ سَدًّا فَأَغْشَيْنَاهُمْ فَهُمْ لَا يُبْصِرُونَ <span class="verse-number">٩</span>      
+</div>      
+      
+<div class="verse">      
+    وَسَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ <span class="verse-number">١٠</span>      
+</div>      
+      
+<div class="verse">      
+    إِنَّمَا تُنذِرُ مَنِ اتَّبَعَ الذِّكْرَ وَخَشِيَ الرَّحْمَـٰنَ بِالْغَيْبِ ۖ فَبَشِّرْهُ بِمَغْفِرَةٍ وَأَجْرٍ كَرِيمٍ <span class="verse-number">١١</span>      
+</div>      
+      
+<div class="verse">      
+    إِنَّا نَحْنُ نُحْيِي الْمَوْتَىٰ وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ ۚ وَكُلَّ شَيْءٍ أَحْصَيْنَاهُ فِي إِمَامٍ مُّبِينٍ <span class="verse-number">١٢</span>      
+</div>      
+
+<div class="verse">      
+    وَاضْرِبْ لَهُم مَّثَلًا أَصْحَابَ الْقَرْيَةِ إِذْ جَاءَهَا الْمُرْسَلُونَ <span class="verse-number">١٣</span>      
+</div>      
+
+<div class="verse">      
+    إِذْ أَرْسَلْنَا إِلَيْهِمُ اثْنَيْنِ فَكَذَّبُوهُمَا فَعَزَّزْنَا بِثَالِثٍ فَقَالُوا إِنَّا إِلَيْكُم مُّرْسَلُونَ <span class="verse-number">١٤</span>      
+</div>      
+
+<div class="verse">      
+    قَالُوا مَا أَنتُمْ إِلَّا بَشَرٌ مِّثْلُنَا وَمَا أَنزَلَ الرَّحْمَـٰنُ مِن شَيْءٍ إِنْ أَنتُمْ إِلَّا تَكْذِبُونَ <span class="verse-number">١٥</span>      
+</div>      
+
+<div class="verse">      
+    قَالُوا رَبُّنَا يَعْلَمُ إِنَّا إِلَيْكُمْ لَمُرْسَلُونَ <span class="verse-number">١٦</span>      
+</div>      
+
+<div class="verse">      
+    وَمَا عَلَيْنَا إِلَّا الْبَلَاغُ الْمُبِينُ <span class="verse-number">١٧</span>      
+</div>      
+
+<div class="verse">      
+    قَالُوا إِنَّا تَطَيَّرْنَا بِكُمْ ۖ لَئِن لَّمْ تَنتَهُوا لَنَرْجُمَنَّكُمْ وَلَيَمَسَّنَّكُم مِّنَّا عَذَابٌ أَلِيمٌ <span class="verse-number">١٨</span>      
+</div>      
+
+<div class="verse">      
+    قَالُوا طَائِرُكُم مَّعَكُمْ ۚ أَئِن ذُكِّرْتُم ۚ بَلْ أَنتُمْ قَوْمٌ مُّسْرِفُونَ <span class="verse-number">١٩</span>      
+</div>      
+
+<div class="verse">      
+    وَجَاءَ مِنْ أَقْصَى الْمَدِينَةِ رَجُلٌ يَسْعَىٰ قَالَ يَا قَوْمِ اتَّبِعُوا الْمُرْسَلِينَ <span class="verse-number">٢٠</span>      
+</div>      
+
+<div class="verse">      
+    اتَّبِعُوا مَن لَّا يَسْأَلُكُمْ أَجْرًا وَهُم مُّهْتَدُونَ <span class="verse-number">٢١</span>      
+</div>      
+
+<div class="verse">      
+    وَمَا لِيَ لَا أَعْبُدُ الَّذِي فَطَرَنِي وَإِلَيْهِ تُرْجَعُونَ <span class="verse-number">٢٢</span>      
+</div>      
+
+<div class="verse">      
+    أَأَتَّخِذُ مِن دُونِهِ آلِهَةً إِن يُرِدْنِ الرَّحْمَـٰنُ بِضُرٍّ لَّا تُغْنِ عَنِّي شَفَاعَتُهُمْ شَيْئًا وَلَا يُنقِذُونِ <span class="verse-number">٢٣</span>      
+</div>      
+
+<div class="verse">      
+    إِنِّي إِذًا لَّفِي ضَلَالٍ مُّبِينٍ <span class="verse-number">٢٤</span>      
+</div>      
+
+<div class="verse">      
+    إِنِّي آمَنتُ بِرَبِّكُمْ فَاسْمَعُونِ <span class="verse-number">٢٥</span>      
+</div>      
+
+<div class="verse">      
+    قِيلَ ادْخُلِ الْجَنَّةَ ۖ قَالَ يَا لَيْتَ قَوْمِي يَعْلَمُونَ <span class="verse-number">٢٦</span>      
+</div>      
+
+<div class="verse">      
+    بِمَا غَفَرَ لِي رَبِّي وَجَعَلَنِي مِنَ الْمُكْرَمِينَ <span class="verse-number">٢٧</span>      
+</div>      
+
+<div class="verse">      
+    وَمَا أَنزَلْنَا عَلَىٰ قَوْمِهِ مِن بَعْدِهِ مِن جُندٍ مِّنَ السَّمَاءِ وَمَا كُنَّا مُنزِلِينَ <span class="verse-number">٢٨</span>      
+</div>      
+
+<div class="verse">      
+    إِن كَانَتْ إِلَّا صَيْحَةً وَاحِدَةً فَإِذَا هُمْ خَامِدُونَ <span class="verse-number">٢٩</span>      
+</div>      
+
+<div class="verse">      
+    يَا حَسْرَةً عَلَى الْعِبَادِ ۚ مَا يَأْتِيهِم مِّن رَّسُولٍ إِلَّا كَانُوا بِهِ يَسْتَهْزِئُونَ <span class="verse-number">٣٠</span>      
+</div>      
+
+<div class="verse">      
+    أَلَمْ يَرَوْا كَمْ أَهْلَكْنَا قَبْلَهُم مِّنَ الْقُرُونِ أَنَّهُمْ إِلَيْهِمْ لَا يَرْجِعُونَ <span class="verse-number">٣١</span>      
+</div>      
+
+<div class="verse">      
+    وَإِن كُلٌّ لَّمَّا جَمِيعٌ لَّدَيْنَا مُحْضَرُونَ <span class="verse-number">٣٢</span>      
+</div>      
+
+<div class="verse">      
+    وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ <span class="verse-number">٣٣</span>      
+</div>      
+
+<div class="verse">      
+    وَ
+
